@@ -51,7 +51,7 @@ function deleteTask(index) {
 
 updateTasks();
 
-// Pomodoro Timer
+// Samin's Timer
 let timer;
 let timeLeft = 25 * 60;
 
@@ -86,3 +86,18 @@ resetBtn.addEventListener("click", () => {
 });
 
 updateTimer();
+
+// Splash Screen
+const splash = document.getElementById("splash-screen");
+const enterAppBtn = document.getElementById("enter-app");
+
+function hideSplash() {
+  splash.classList.add("hidden");
+}
+
+// Option 1: Auto-hide after 2.5s
+setTimeout(hideSplash, 2500);
+
+// Option 2: Hide when clicking button
+enterAppBtn.addEventListener("click", hideSplash);
+
