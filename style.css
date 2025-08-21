@@ -1,74 +1,151 @@
-/* General Reset */
+/* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+:root {
+  --bg-light: #fdfdfd;
+  --text-light: #333;
+  --card-light: #ffffff;
+
+  --bg-dark: #121212;
+  --text-dark: #f1f1f1;
+  --card-dark: #1f1f1f;
+
+  --primary: #4CAF50;
+  --secondary: #3e8e41;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  transition: 0.3s;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background 0.4s, color 0.4s;
   padding: 20px;
 }
 
-:root {
-  --bg: #f4f4f4;
-  --text: #333;
-  --primary: #4CAF50;
-}
-.dark {
-  --bg: #1e1e1e;
-  --text: #f4f4f4;
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 button {
   background: var(--primary);
   border: none;
-  padding: 8px 12px;
+  padding: 8px 14px;
   margin: 5px;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
   color: white;
+  font-size: 0.9rem;
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background: var(--secondary);
 }
 
 .task-section, .timer-section {
   margin-top: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  background: rgba(0,0,0,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--card-light);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background 0.4s, color 0.4s;
+}
+
+body.dark .task-section, body.dark .timer-section {
+  background: var(--card-dark);
+  box-shadow: 0 4px 15px rgba(255,255,255,0.05);
+}
+
+.task-input {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.task-input input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  outline: none;
+  transition: border 0.3s;
+}
+
+.task-input input:focus {
+  border: 1px solid var(--primary);
 }
 
 #task-list {
   list-style: none;
   margin-top: 10px;
 }
+
 #task-list li {
   display: flex;
   justify-content: space-between;
-  margin: 5px 0;
-  padding: 8px;
-  background: rgba(0,0,0,0.1);
-  border-radius: 5px;
+  align-items: center;
+  margin: 8px 0;
+  padding: 10px 15px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+body.dark #task-list li {
+  background: rgba(255,255,255,0.08);
+}
+
+#task-list li span {
+  flex: 1;
+  font-size: 1rem;
 }
 
 #progress-container {
   width: 100%;
-  background: #ccc;
-  border-radius: 5px;
-  margin-top: 10px;
-  height: 10px;
+  background: #ddd;
+  border-radius: 10px;
+  margin-top: 15px;
+  height: 12px;
+  overflow: hidden;
 }
+
 #progress-bar {
-  height: 10px;
+  height: 100%;
   width: 0;
-  background: var(--primary);
-  border-radius: 5px;
+  background: linear-gradient(90deg, var(--primary), #81c784);
+  border-radius: 10px;
+  transition: width 0.3s ease-in-out;
 }
+
 #timer {
-  font-size: 2rem;
-  margin: 10px 0;
+  font-size: 2.5rem;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 600px) {
+  body { padding: 10px; }
+  h1 { font-size: 1.5rem; }
+  button { padding: 6px 10px; font-size: 0.8rem; }
+  #timer { font-size: 2rem; }
 }
