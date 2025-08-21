@@ -1,0 +1,74 @@
+/* General Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+  padding: 20px;
+}
+
+:root {
+  --bg: #f4f4f4;
+  --text: #333;
+  --primary: #4CAF50;
+}
+.dark {
+  --bg: #1e1e1e;
+  --text: #f4f4f4;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+button {
+  background: var(--primary);
+  border: none;
+  padding: 8px 12px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+}
+
+.task-section, .timer-section {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.05);
+}
+
+#task-list {
+  list-style: none;
+  margin-top: 10px;
+}
+#task-list li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+  padding: 8px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+#progress-container {
+  width: 100%;
+  background: #ccc;
+  border-radius: 5px;
+  margin-top: 10px;
+  height: 10px;
+}
+#progress-bar {
+  height: 10px;
+  width: 0;
+  background: var(--primary);
+  border-radius: 5px;
+}
+#timer {
+  font-size: 2rem;
+  margin: 10px 0;
+}
