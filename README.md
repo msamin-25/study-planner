@@ -17,12 +17,6 @@ This project showcases my front-end development skills, including **DOM manipula
 
 ---
 
-## 🖼️ Preview
-
-![App Screenshot](https://via.placeholder.com/800x400.png?text=Study+Planner+Preview)
-
----
-
 ## 🚀 Getting Started
 
 ### 1. Clone the repo
